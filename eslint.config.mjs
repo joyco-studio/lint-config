@@ -2,6 +2,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 import importX from 'eslint-plugin-import-x'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -12,7 +13,7 @@ const eslintConfig = defineConfig([
 
   // ── Import plugin setup ──────────────────────────────────
   {
-    plugins: { 'import-x': importX },
+    plugins: { 'import-x': importX, 'simple-import-sort': simpleImportSort },
   },
 
   // ── Rules ────────────────────────────────────────────────
@@ -23,14 +24,8 @@ const eslintConfig = defineConfig([
       'react-hooks/refs': 'off',
 
       // --- Consistency (auto-fixable, low friction) ---
-      'import-x/order': [
-        'warn',
-        {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ],
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn',
       'import-x/no-duplicates': 'warn',
       '@typescript-eslint/consistent-type-imports': [
         'warn',
