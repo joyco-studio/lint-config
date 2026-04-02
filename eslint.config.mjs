@@ -54,19 +54,11 @@ const eslintConfig = defineConfig([
           paths: [
             {
               name: 'lodash',
-              message:
-                'Import specific methods (e.g. lodash.debounce) instead of the full lodash bundle.',
+              message: 'Prefer importing specific utils instead lodash/[util].',
             },
             {
               name: 'moment',
               message: 'Use date-fns or dayjs instead — moment is 300kb+ and mutable.',
-            },
-          ],
-          patterns: [
-            {
-              group: ['lodash/*', '!lodash.debounce', '!lodash.throttle'],
-              message:
-                'Only lodash.debounce and lodash.throttle are allowed. For other utils, use native JS.',
             },
           ],
         },
